@@ -19,10 +19,8 @@ const app = express();
 const PORT = 3000;
 app.use(cors());
 app.use(express.json());
-app.get('/', (req, res) => {
-    res.json(database.users);
-    res.send('home')
-})
+
+app.get('/', (req, res) => {res.send('home')})
 app.post('/register', (req, res) => register.handleRegister(req, res, db, bcrypt));
 app.post('/sign-in', (req, res) => signIn.handleSignIn(req, res, db, bcrypt));
 app.get('/:id', (req, res) => profile.handleProfileGet(req, res, db));
